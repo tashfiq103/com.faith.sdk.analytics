@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444975066890e4d42868e2c92173e61f, type: 3}
+  m_Name: FaithAnalyticsGeneralConfiguretionInfo
+  m_EditorClassIdentifier: 
+  _showGeneralSetting: 0
+  _showAnalytics: 0
+  _showDebuggingSetting: 0
+  _autoInitialize: 1
+  _showAnalyticsLogInConsole: 1
+  _infoLogColor: {r: 0, g: 1, b: 1, a: 1}
+  _warningLogColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _errorLogColor: {r: 1, g: 0, b: 0, a: 1}
