@@ -1,7 +1,11 @@
 namespace com.faith.sdk.analytics
 {
     using UnityEngine;
-    using UnityEngine.Events;
+    using System.Collections.Generic;
+
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
     [CreateAssetMenu(fileName = "FaithFacebookConfiguretionInfo", menuName = FaithAnalyticsConstant.NameOfSDK + "/FaithFacebookConfiguretionInfo")]
     public class FaithFacebookConfiguretionInfo : FaithBaseClassForAnalyticsConfiguretionInfo
@@ -21,25 +25,78 @@ namespace com.faith.sdk.analytics
 
         public override void SetNameAndIntegrationStatus()
         {
-            throw new System.NotImplementedException();
+            string sdkName = FaithAnalyticsConstant.NameOfSDK + "_Facebook";
+            SetNameOfConfiguretion(sdkName);
+#if UNITY_EDITOR
+            _isSDKIntegrated = FaithAnalyticsScriptDefineSymbol.CheckFacebookIntegration(sdkName);
+#endif
         }
 
         public override void Initialize(FaithAnalyticsGeneralConfiguretionInfo faithAnalyticsGeneralConfiguretionInfo, bool isATTEnable = false)
         {
-            throw new System.NotImplementedException();
+
+#if FaithAnalytics_Facebook
+            GameObject newFaithAnalyticsFacebookWrapper = new GameObject("FaithFacebookWrapper");
+            FaithAnalyticsFacebookWrapper.Instance = newFaithAnalyticsFacebookWrapper.AddComponent<FaithAnalyticsFacebookWrapper>();
+            FaithAnalyticsFacebookWrapper.Instance.Initialize(faithAnalyticsGeneralConfiguretionInfo, this, isATTEnable);
+
+            DontDestroyOnLoad(newFaithAnalyticsFacebookWrapper);
+#endif
         }
 
         public override void PostCustomEditorGUI()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void PreCustomEditorGUI()
         {
-            throw new System.NotImplementedException();
+#if UNITY_EDITOR && FaithAnalytics_Facebook
+
+            if (_facebookSettings == null)
+                _facebookSettings = Resources.Load<Facebook.Unity.Settings.FacebookSettings>("FacebookSettings");
+
+            if (_facebookSettings == null)
+            {
+                EditorGUILayout.HelpBox(string.Format("You need to create 'FacebookSettings' by going to 'Facebook/Edit Settings' from menu in order to facebook sdk for working properly"), MessageType.Error);
+            }
+            else
+            {
+
+                EditorGUILayout.BeginHorizontal();
+                {
+                    EditorGUILayout.LabelField("appName", GUILayout.Width(FaithSdkConstant.EDITOR_LABEL_WIDTH));
+                    EditorGUI.BeginChangeCheck();
+                    _facebookAppName = EditorGUILayout.TextField(_facebookAppName);
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        Facebook.Unity.Settings.FacebookSettings.AppLabels = new List<string>() { _facebookAppName };
+                    }
+
+                }
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.BeginHorizontal();
+                {
+                    EditorGUILayout.LabelField("appId", GUILayout.Width(FaithSdkConstant.EDITOR_LABEL_WIDTH));
+                    EditorGUI.BeginChangeCheck();
+                    _facebookAppId = EditorGUILayout.TextField(_facebookAppId);
+                    if (EditorGUI.EndChangeCheck())
+                    {
+
+                        Facebook.Unity.Settings.FacebookSettings.AppIds = new List<string>() { _facebookAppId };
+                    }
+                }
+                EditorGUILayout.EndHorizontal();
+            }
+
+
+
+            FaithSdkEditorModule.DrawHorizontalLine();
+#endif
         }
 
-        #endregion
+#endregion
 
     }
 }

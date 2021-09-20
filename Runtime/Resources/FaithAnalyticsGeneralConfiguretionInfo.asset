@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FaithAnalyticsGeneralConfiguretionInfo
   m_EditorClassIdentifier: 
   _showGeneralSetting: 0
-  _showAnalytics: 0
+  _showAnalytics: 1
   _showDebuggingSetting: 0
   _autoInitialize: 1
   _showAnalyticsLogInConsole: 1
