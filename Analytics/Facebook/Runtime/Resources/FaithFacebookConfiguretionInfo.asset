@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12408aa19dc5549a5ab2bf9ea8270b10, type: 3}
   m_Name: FaithFacebookConfiguretionInfo
   m_EditorClassIdentifier: 
-  _showSettings: 1
+  _showSettings: 0
   _nameOfConfiguretion: Facebook
   _isSDKIntegrated: 1
   _enableAnalyticsEvent: 1

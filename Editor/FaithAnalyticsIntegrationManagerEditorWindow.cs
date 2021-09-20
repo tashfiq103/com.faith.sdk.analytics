@@ -242,7 +242,7 @@ namespace com.faith.sdk.analytics
                 {
                     EditorGUILayout.BeginHorizontal();
                     {
-                        EditorGUILayout.LabelField("Reference/Link", GUILayout.Width(FaithSdkConstant.EDITOR_LABEL_WIDTH + 30));
+                        EditorGUILayout.LabelField("Reference/Link", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH + 30));
                         if (GUILayout.Button("Download", _hyperlinkStyle, GUILayout.Width(100)))
                         {
                             Application.OpenURL(_linkForDownload);

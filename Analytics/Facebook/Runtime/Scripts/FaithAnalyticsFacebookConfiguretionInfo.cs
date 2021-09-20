@@ -8,7 +8,7 @@ namespace com.faith.sdk.analytics
 #endif
 
     [CreateAssetMenu(fileName = "FaithFacebookConfiguretionInfo", menuName = FaithAnalyticsConstant.NameOfSDK + "/FaithFacebookConfiguretionInfo")]
-    public class FaithFacebookConfiguretionInfo : FaithBaseClassForAnalyticsConfiguretionInfo
+    public class FaithAnalyticsFacebookConfiguretionInfo : FaithBaseClassForAnalyticsConfiguretionInfo
     {
         #region Private Variables
 

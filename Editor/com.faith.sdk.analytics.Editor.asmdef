@@ -1,0 +1,18 @@
+{
+    "name": "com.faith.sdk.analytics.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ca132c1a6a12e4c32b7b0842e9a132f0"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

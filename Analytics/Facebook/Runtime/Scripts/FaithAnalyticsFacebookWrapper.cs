@@ -20,7 +20,7 @@ namespace com.faith.sdk.analytics
 #region Private Variables
 
         private FaithAnalyticsGeneralConfiguretionInfo _faithAnalyticsGeneralConfiguretionInfo;
-        private FaithFacebookConfiguretionInfo _facebookConfiguretion;
+        private FaithAnalyticsFacebookConfiguretionInfo _facebookConfiguretion;
         private bool _isATTEnabled = false;
         private UnityAction _OnInitialized;
 
@@ -68,7 +68,7 @@ namespace com.faith.sdk.analytics
 
 #region Public Callback
 
-        public void Initialize(FaithAnalyticsGeneralConfiguretionInfo faithAnalyticsGeneralConfiguretionInfo, FaithFacebookConfiguretionInfo facebookConfiguretion, bool isATTEnabled, UnityAction OnInitialized = null)
+        public void Initialize(FaithAnalyticsGeneralConfiguretionInfo faithAnalyticsGeneralConfiguretionInfo, FaithAnalyticsFacebookConfiguretionInfo facebookConfiguretion, bool isATTEnabled, UnityAction OnInitialized = null)
         {
 
             _faithAnalyticsGeneralConfiguretionInfo = faithAnalyticsGeneralConfiguretionInfo;
