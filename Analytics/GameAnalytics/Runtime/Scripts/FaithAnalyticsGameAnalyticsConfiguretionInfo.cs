@@ -20,7 +20,7 @@ namespace com.faith.sdk.analytics
 
         [HideInInspector, SerializeField] private int _defaultWorldIndex = 1;
 
-#if UNITY_EDITOR && FaithSdk_GameAnalytics
+#if UNITY_EDITOR && FaithAnalytics_GameAnalytics
         private GameAnalyticsSDK.Setup.Settings _gaSettings;
         private Editor _gaSettingsEditor;
         private bool _isShowingGASettings;
@@ -42,7 +42,7 @@ namespace com.faith.sdk.analytics
 
         public override void Initialize(FaithAnalyticsGeneralConfiguretionInfo faithAnalyticsGeneralConfiguretionInfo, bool isATTEnable = false)
         {
-#if FaithSdk_GameAnalytics
+#if FaithAnalytics_GameAnalytics
             if (FaithAnalyticsGameAnalyticsWrapper.Instance == null && IsAnalyticsEventEnabled)
             {
                 Instantiate(Resources.Load("GameAnalytics/FA_GameAnalytics"));
@@ -60,7 +60,7 @@ namespace com.faith.sdk.analytics
         public override void PreCustomEditorGUI()
         {
 
-#if UNITY_EDITOR && FaithSdk_GameAnalytics
+#if UNITY_EDITOR && FaithAnalytics_GameAnalytics
             
 
             EditorGUILayout.BeginVertical();
