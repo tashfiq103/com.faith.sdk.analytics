@@ -35,12 +35,12 @@ FaithAnalytics Integration manager comes with the following section
 
 ## Analytics
 
-> Each Analytics will have their own section to confiure it settings.
-> The tabs would be grayed out if you haven't imported the following SDK with the status message of 'SDK - Not Found'.
-> Once the SDK has been imported, you will be able to interact with the section.
-> In order to iniatize the SDK and work properly, make sure to "Enable" the imported SDK.
-> For "TrackProgressionEvent" on each analytics : LevelStarted, LevelComplete & LevelFailed will pass their data on the following analytics.
-> For "TrackAdEvent" on each analytics : RewardedAd, InterstitialAd & BannerAd will pass their data on the following analytics.
+- Each Analytics will have their own section to confiure it settings.
+- The tabs would be grayed out if you haven't imported the following SDK with the status message of 'SDK - Not Found'.
+- Once the SDK has been imported, you will be able to interact with the section.
+- In order to iniatize the SDK and work properly, make sure to "Enable" the imported SDK.
+- For "TrackProgressionEvent" on each analytics : LevelStarted, LevelComplete & LevelFailed will pass their data on the following analytics.
+- For "TrackAdEvent" on each analytics : RewardedAd, InterstitialAd & BannerAd will pass their data on the following analytics.
 
 - APIs
 ```sh
@@ -74,4 +74,5 @@ public static class AnalyticsCall
 - You will be able to "Toggle" the APSdk log by taping "Show AP Sdk Log In Console".
 - You will be able to change the colors of the log on the following section as well.
 
+![](https://github.com/tashfiq103/com.faith.sdk.analytics/blob/main/_GitHubResources/ss9_debugging.png)
 
