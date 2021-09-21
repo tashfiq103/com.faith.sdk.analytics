@@ -39,8 +39,6 @@ namespace com.faith.sdk.analytics
                 if (faithAnalyticsConfiguretion != null)
                     faithAnalyticsConfiguretion.Initialize(faithAnalyticsGeneralConfiguretionInfo, IsATTEnabled);
             }
-
-            FaithAnalytics.Initialize(faithAnalyticsGeneralConfiguretionInfo);
         }
     }
 }

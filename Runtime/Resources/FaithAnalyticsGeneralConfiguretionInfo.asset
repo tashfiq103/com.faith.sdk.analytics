@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FaithAnalyticsGeneralConfiguretionInfo
   m_EditorClassIdentifier: 
   _showGeneralSetting: 1
-  _showAnalytics: 0
+  _showAnalytics: 1
   _showDebuggingSetting: 0
-  _autoInitialize: 0
+  _autoInitialize: 1
   _showAnalyticsLogInConsole: 1
   _infoLogColor: {r: 0, g: 1, b: 1, a: 1}
   _warningLogColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

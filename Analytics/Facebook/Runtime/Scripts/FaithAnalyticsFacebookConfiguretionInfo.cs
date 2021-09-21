@@ -36,7 +36,7 @@ namespace com.faith.sdk.analytics
         {
 
 #if FaithAnalytics_Facebook
-            GameObject newFaithAnalyticsFacebookWrapper = new GameObject("FaithFacebookWrapper");
+            GameObject newFaithAnalyticsFacebookWrapper = new GameObject("FaithAnalyticsFacebookWrapper");
             FaithAnalyticsFacebookWrapper.Instance = newFaithAnalyticsFacebookWrapper.AddComponent<FaithAnalyticsFacebookWrapper>();
             FaithAnalyticsFacebookWrapper.Instance.Initialize(faithAnalyticsGeneralConfiguretionInfo, this, isATTEnable);
 
