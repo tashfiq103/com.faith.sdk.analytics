@@ -20,8 +20,8 @@ namespace com.faith.sdk.analytics
 
         private List<FaithBaseClassForAnalyticsConfiguretionInfo> _listOfAnalyticsConfiguretion;
 
-        private const string _linkForDownload = "https://github.com/ap-tashfiq/com.alphapotato.sdk/releases/";
-        private const string _linkForDocumetation = "https://github.com/ap-tashfiq/com.alphapotato.sdk/blob/main/README.md";
+        private const string _linkForDownload = "https://github.com/tashfiq103/com.faith.sdk.analytics";
+        private const string _linkForDocumetation = "https://github.com/tashfiq103/com.faith.sdk.analytics/blob/main/README.md";
 
         #endregion
 

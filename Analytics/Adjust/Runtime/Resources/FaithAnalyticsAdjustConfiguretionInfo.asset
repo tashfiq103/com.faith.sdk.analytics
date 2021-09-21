@@ -15,7 +15,7 @@ MonoBehaviour:
   _showSettings: 0
   _nameOfConfiguretion: Adjust
   _isSDKIntegrated: 1
-  _enableAnalyticsEvent: 1
+  _enableAnalyticsEvent: 0
   _trackProgressionEvent: 0
   _trackAdEvent: 0
   _subscribeToLionEvent: 0

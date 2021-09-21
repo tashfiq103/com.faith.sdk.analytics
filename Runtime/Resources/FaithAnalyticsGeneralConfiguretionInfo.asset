@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444975066890e4d42868e2c92173e61f, type: 3}
   m_Name: FaithAnalyticsGeneralConfiguretionInfo
   m_EditorClassIdentifier: 
-  _showGeneralSetting: 1
-  _showAnalytics: 1
+  _showGeneralSetting: 0
+  _showAnalytics: 0
   _showDebuggingSetting: 0
-  _autoInitialize: 1
+  _autoInitialize: 0
   _showAnalyticsLogInConsole: 1
   _infoLogColor: {r: 0, g: 1, b: 1, a: 1}
   _warningLogColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

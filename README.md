@@ -107,7 +107,7 @@ public static class AnalyticsCall
 
 ## Debugging
 
-- You will be able to "Toggle" the APSdk log by taping "Show AP Sdk Log In Console".
+- You will be able to "Toggle" the FaithAnalytics log by taping "Show Analytics Log In Console".
 - You will be able to change the colors of the log on the following section as well.
 
 ![](https://github.com/tashfiq103/com.faith.sdk.analytics/blob/main/_GitHubResources/ss9_debugging.png)
