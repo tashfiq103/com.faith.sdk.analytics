@@ -65,7 +65,7 @@ namespace com.faith.sdk.analytics
 
                 EditorGUILayout.BeginHorizontal();
                 {
-                    EditorGUILayout.LabelField("appName", GUILayout.Width(FaithSdkConstant.EDITOR_LABEL_WIDTH));
+                    EditorGUILayout.LabelField("appName", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                     EditorGUI.BeginChangeCheck();
                     _facebookAppName = EditorGUILayout.TextField(_facebookAppName);
                     if (EditorGUI.EndChangeCheck())
@@ -78,7 +78,7 @@ namespace com.faith.sdk.analytics
 
                 EditorGUILayout.BeginHorizontal();
                 {
-                    EditorGUILayout.LabelField("appId", GUILayout.Width(FaithSdkConstant.EDITOR_LABEL_WIDTH));
+                    EditorGUILayout.LabelField("appId", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                     EditorGUI.BeginChangeCheck();
                     _facebookAppId = EditorGUILayout.TextField(_facebookAppId);
                     if (EditorGUI.EndChangeCheck())
@@ -92,7 +92,7 @@ namespace com.faith.sdk.analytics
 
 
 
-            FaithSdkEditorModule.DrawHorizontalLine();
+            FaithAnalyticsEditorModule.DrawHorizontalLine();
 #endif
         }
 

@@ -9,7 +9,7 @@ namespace com.faith.sdk.analytics
         public override void Initialize(FaithAnalyticsGeneralConfiguretionInfo faithAnalyticsGeneralConfiguretionInfo, bool isATTEnable = false)
         {
 #if FaithAnalytics_Firebase
-            if (FaithFirebaseWrapper.Instance == null && IsAnalyticsEventEnabled) {
+            if (FaithAnalyticsFirebaseWrapper.Instance == null && IsAnalyticsEventEnabled) {
 
                 GameObject newfaithAnalyticsFirebaseWrapper = new GameObject("FaithAnalyticsFirebaseWrapper");
                 FaithAnalyticsFirebaseWrapper.Instance = newfaithAnalyticsFirebaseWrapper.AddComponent<FaithAnalyticsFirebaseWrapper>();

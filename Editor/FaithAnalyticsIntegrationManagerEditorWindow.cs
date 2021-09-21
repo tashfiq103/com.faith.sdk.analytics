@@ -381,11 +381,14 @@ namespace com.faith.sdk.analytics
                         "[" + (!_showDebuggingSettings.boolValue ? "+" : "-") + "] Debugging"
                     );
 
-            _settingsTitleStyle = new GUIStyle(EditorStyles.boldLabel);
+            _settingsTitleStyle = new GUIStyle();
+            _settingsTitleStyle.normal.textColor = Color.white;
+            _settingsTitleStyle.fontStyle = FontStyle.Bold;
             _settingsTitleStyle.alignment = TextAnchor.MiddleLeft;
 
-            _hyperlinkStyle = new GUIStyle(EditorStyles.boldLabel);
+            _hyperlinkStyle = new GUIStyle();
             _hyperlinkStyle.normal.textColor = new Color(50 / 255.0f, 139 / 255.0f, 217 / 255.0f);
+            _hyperlinkStyle.fontStyle = FontStyle.BoldAndItalic;
             _hyperlinkStyle.wordWrap = true;
             _hyperlinkStyle.richText = true;
 
