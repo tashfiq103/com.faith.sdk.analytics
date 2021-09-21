@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac5332a35b044473af007c21d149a54, type: 3}
   m_Name: FaithAnalyticsFirebaseConfiguretionInfo
   m_EditorClassIdentifier: 
-  _showSettings: 1
+  _showSettings: 0
   _nameOfConfiguretion: Firebase
   _isSDKIntegrated: 1
   _enableAnalyticsEvent: 1

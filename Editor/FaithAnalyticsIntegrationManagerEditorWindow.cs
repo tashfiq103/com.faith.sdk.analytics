@@ -34,6 +34,8 @@ namespace com.faith.sdk.analytics
         private GUIContent _analyticsSettingContent;
         private GUIContent _debuggingSettingContent;
 
+        private SerializedProperty _autoInitialize;
+
         private SerializedProperty _showGeneralSettings;
         private SerializedProperty _showAnalytics;
         private SerializedProperty _showDebuggingSettings;
@@ -254,6 +256,26 @@ namespace com.faith.sdk.analytics
                     }
                     EditorGUILayout.EndHorizontal();
 
+                    //-----------
+                    EditorGUILayout.BeginHorizontal();
+                    {
+                        EditorGUILayout.LabelField(_autoInitialize.displayName, GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
+                        EditorGUI.BeginChangeCheck();
+                        _autoInitialize.boolValue = EditorGUILayout.Toggle(_autoInitialize.boolValue);
+                        if (EditorGUI.EndChangeCheck())
+                        {
+                            _autoInitialize.serializedObject.ApplyModifiedProperties();
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    if (!_autoInitialize.boolValue) {
+
+                        FaithAnalyticsEditorModule.DrawHorizontalLine();
+                        EditorGUILayout.HelpBox(
+                            "For automatic initialization at start for all the analytics, you need to set the value = 'true'. If you want to manually initialize the sdk, make sure to call 'FaithAnalyticsManager.Initialize()' when the value = 'false'",
+                            MessageType.Warning);
+                    }
                 }
                 EditorGUI.indentLevel -= 1;
             }
@@ -340,9 +362,13 @@ namespace com.faith.sdk.analytics
             _apSDKConfiguretionInfo             = Resources.Load<FaithAnalyticsGeneralConfiguretionInfo>("FaithAnalyticsGeneralConfiguretionInfo");
             _serializedSDKConfiguretionInfo     = new SerializedObject(_apSDKConfiguretionInfo);
 
+            _autoInitialize                     = _serializedSDKConfiguretionInfo.FindProperty("_autoInitialize");
+
+
             _showGeneralSettings                = _serializedSDKConfiguretionInfo.FindProperty("_showGeneralSetting");
             _showAnalytics                      = _serializedSDKConfiguretionInfo.FindProperty("_showAnalytics");
             _showDebuggingSettings              = _serializedSDKConfiguretionInfo.FindProperty("_showDebuggingSetting");
+
 
             _generalSettingContent = new GUIContent(
                         "[" + (!_showGeneralSettings.boolValue ? "+" : "-") + "] General"

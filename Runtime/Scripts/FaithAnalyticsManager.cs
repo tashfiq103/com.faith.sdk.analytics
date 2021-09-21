@@ -23,11 +23,13 @@ namespace com.faith.sdk.analytics
 
             if (faithAnalyticsGeneralConfiguretionInfo.IsAutoInitialize) {
 
-                Initialize(faithAnalyticsGeneralConfiguretionInfo);
+                Initialize();
             }
         }
 
-        public static void Initialize(FaithAnalyticsGeneralConfiguretionInfo faithAnalyticsGeneralConfiguretionInfo) {
+        public static void Initialize() {
+
+            FaithAnalyticsGeneralConfiguretionInfo faithAnalyticsGeneralConfiguretionInfo = Resources.Load<FaithAnalyticsGeneralConfiguretionInfo>("FaithAnalyticsGeneralConfiguretionInfo");
 
             Object[] analyticsConfiguretionObjects = Resources.LoadAll("", typeof(FaithBaseClassForAnalyticsConfiguretionInfo));
             foreach (Object analyticsConfiguretionObject in analyticsConfiguretionObjects)
