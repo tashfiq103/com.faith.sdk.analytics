@@ -2,9 +2,16 @@ namespace com.faith.sdk.analytics
 {
     using UnityEngine;
 
-    [CreateAssetMenu(fileName = "FaithAnalyticsGeneralConfiguretionInfo", menuName = FaithAnalyticsConstant.NameOfSDK + "/FaithAnalyticsGeneralConfiguretionInfo")]
+    [CreateAssetMenu(fileName = "FaithAnalyticsGeneralConfiguretionInfo", menuName = NAME_OF_SDK + "/FaithAnalyticsGeneralConfiguretionInfo")]
     public class FaithAnalyticsGeneralConfiguretionInfo : ScriptableObject
     {
+        #region Public Variables
+
+        public const float EDITOR_LABEL_WIDTH = 200;
+        public const string NAME_OF_SDK = "FaithAnalytics";
+
+        #endregion
+
         #region Private Variables
 
 #if UNITY_EDITOR

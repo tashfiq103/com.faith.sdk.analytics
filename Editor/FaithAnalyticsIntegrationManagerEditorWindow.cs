@@ -199,7 +199,7 @@ namespace com.faith.sdk.analytics
 
                             EditorGUILayout.BeginHorizontal();
                             {
-                                EditorGUILayout.LabelField(_trackProgressionEvent.displayName, GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                                EditorGUILayout.LabelField(_trackProgressionEvent.displayName, GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                                 EditorGUI.BeginChangeCheck();
                                 _trackProgressionEvent.boolValue = EditorGUILayout.Toggle(_trackProgressionEvent.boolValue);
                                 if (EditorGUI.EndChangeCheck())
@@ -209,7 +209,7 @@ namespace com.faith.sdk.analytics
 
                             EditorGUILayout.BeginHorizontal();
                             {
-                                EditorGUILayout.LabelField(_trackAdEvent.displayName, GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                                EditorGUILayout.LabelField(_trackAdEvent.displayName, GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                                 EditorGUI.BeginChangeCheck();
                                 _trackAdEvent.boolValue = EditorGUILayout.Toggle(_trackAdEvent.boolValue);
                                 if (EditorGUI.EndChangeCheck())
@@ -242,7 +242,7 @@ namespace com.faith.sdk.analytics
                 {
                     EditorGUILayout.BeginHorizontal();
                     {
-                        EditorGUILayout.LabelField("Reference/Link", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH + 30));
+                        EditorGUILayout.LabelField("Reference/Link", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH + 30));
                         if (GUILayout.Button("Download", _hyperlinkStyle, GUILayout.Width(100)))
                         {
                             Application.OpenURL(_linkForDownload);
@@ -288,7 +288,7 @@ namespace com.faith.sdk.analytics
                 {
                     EditorGUILayout.BeginHorizontal();
                     {
-                        EditorGUILayout.LabelField(_showAnalyticsLogInConsole.displayName, GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                        EditorGUILayout.LabelField(_showAnalyticsLogInConsole.displayName, GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                         EditorGUI.BeginChangeCheck();
                         _showAnalyticsLogInConsole.boolValue = EditorGUILayout.Toggle(_showAnalyticsLogInConsole.boolValue);
                         if (EditorGUI.EndChangeCheck())

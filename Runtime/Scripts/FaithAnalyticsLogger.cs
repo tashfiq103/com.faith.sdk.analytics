@@ -124,7 +124,7 @@ namespace com.faith.sdk.analytics
 				Debug.Log(string.Format(
 					"<color={0}>{1}{2}</color>",
 					GetHexColorFromRGBColor(_faithAnalyticsGeneralConfiguretionInfo.InfoLogColor),
-					"[" + FaithAnalyticsConstant.NameOfSDK + "]: ",
+					"[" + FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "]: ",
 					message));
 			}
 
@@ -138,7 +138,7 @@ namespace com.faith.sdk.analytics
 				Debug.LogWarning(string.Format(
 					"<color={0}>{1}{2}</color>",
 					GetHexColorFromRGBColor(_faithAnalyticsGeneralConfiguretionInfo.WarningLogColor),
-					"[" + FaithAnalyticsConstant.NameOfSDK + "]: ",
+					"[" + FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "]: ",
 					message));
 			}
 
@@ -151,7 +151,7 @@ namespace com.faith.sdk.analytics
 				Debug.LogError(string.Format(
 					"<color={0}>{1}{2}</color>",
 					GetHexColorFromRGBColor(_faithAnalyticsGeneralConfiguretionInfo.ErrorLogColor),
-					"[" + FaithAnalyticsConstant.NameOfSDK + "]: ",
+					"[" + FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "]: ",
 					message));
 			}
 

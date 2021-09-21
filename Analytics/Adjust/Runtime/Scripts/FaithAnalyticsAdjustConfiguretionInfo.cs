@@ -11,7 +11,7 @@ namespace com.faith.sdk.analytics
     using UnityEditor;
 #endif
 
-    [CreateAssetMenu(fileName = "FaithAnalyticsAdjustConfiguretionInfo", menuName = FaithAnalyticsConstant.NameOfSDK + "/FaithAnalyticsAdjustConfiguretionInfo")]
+    [CreateAssetMenu(fileName = "FaithAnalyticsAdjustConfiguretionInfo", menuName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "/FaithAnalyticsAdjustConfiguretionInfo")]
     public class FaithAnalyticsAdjustConfiguretionInfo : FaithBaseClassForAnalyticsConfiguretionInfo
     {
         #region Public Variables
@@ -127,21 +127,21 @@ namespace com.faith.sdk.analytics
                     {
                         EditorGUILayout.BeginHorizontal();
                         {
-                            EditorGUILayout.LabelField("AppToken : Android", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                            EditorGUILayout.LabelField("AppToken : Android", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                             _appTokenForAndroid = EditorGUILayout.TextField(_appTokenForAndroid);
                         }
                         EditorGUILayout.EndHorizontal();
 
                         EditorGUILayout.BeginHorizontal();
                         {
-                            EditorGUILayout.LabelField("AppToken : iOS", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                            EditorGUILayout.LabelField("AppToken : iOS", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                             _appTokenForIOS = EditorGUILayout.TextField(_appTokenForIOS);
                         }
                         EditorGUILayout.EndHorizontal();
 
                         EditorGUILayout.BeginHorizontal();
                         {
-                            EditorGUILayout.LabelField("Environment", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                            EditorGUILayout.LabelField("Environment", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                             _environment = (AdjustEnvironment)EditorGUILayout.EnumPopup(_environment);
                         }
                         EditorGUILayout.EndHorizontal();
@@ -186,7 +186,7 @@ namespace com.faith.sdk.analytics
 
                         EditorGUILayout.BeginHorizontal();
                         {
-                            EditorGUILayout.LabelField("LogLevel", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                            EditorGUILayout.LabelField("LogLevel", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                             _logLevel = (AdjustLogLevel)EditorGUILayout.EnumPopup(_logLevel);
                         }
                         EditorGUILayout.EndHorizontal();
@@ -195,7 +195,7 @@ namespace com.faith.sdk.analytics
 
                         EditorGUILayout.BeginHorizontal();
                         {
-                            EditorGUILayout.LabelField("StartDelay", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                            EditorGUILayout.LabelField("StartDelay", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                             _startDelay = EditorGUILayout.FloatField(_startDelay);
                         }
                         EditorGUILayout.EndHorizontal();
@@ -204,7 +204,7 @@ namespace com.faith.sdk.analytics
 
                         EditorGUILayout.BeginHorizontal();
                         {
-                            EditorGUILayout.LabelField("StartManually", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                            EditorGUILayout.LabelField("StartManually", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                             _startManually = EditorGUILayout.Toggle(_startManually);
                         }
                         EditorGUILayout.EndHorizontal();
@@ -213,7 +213,7 @@ namespace com.faith.sdk.analytics
                         EditorGUILayout.Space();
                         EditorGUILayout.BeginHorizontal();
                         {
-                            EditorGUILayout.LabelField("EventBuffering", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                            EditorGUILayout.LabelField("EventBuffering", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                             _eventBuffering = EditorGUILayout.Toggle(_eventBuffering);
                         }
                         EditorGUILayout.EndHorizontal();
@@ -222,7 +222,7 @@ namespace com.faith.sdk.analytics
 
                         EditorGUILayout.BeginHorizontal();
                         {
-                            EditorGUILayout.LabelField("SendInBackground", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                            EditorGUILayout.LabelField("SendInBackground", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                             _sendInBackground = EditorGUILayout.Toggle(_sendInBackground);
                         }
                         EditorGUILayout.EndHorizontal();
@@ -231,7 +231,7 @@ namespace com.faith.sdk.analytics
 
                         EditorGUILayout.BeginHorizontal();
                         {
-                            EditorGUILayout.LabelField("LaunchDeferredDeeplink", GUILayout.Width(FaithAnalyticsConstant.EDITOR_LABEL_WIDTH));
+                            EditorGUILayout.LabelField("LaunchDeferredDeeplink", GUILayout.Width(FaithAnalyticsGeneralConfiguretionInfo.EDITOR_LABEL_WIDTH));
                             _launchDeferredDeeplink = EditorGUILayout.Toggle(_launchDeferredDeeplink);
                         }
                         EditorGUILayout.EndHorizontal();
@@ -250,7 +250,7 @@ namespace com.faith.sdk.analytics
 
         public override void SetNameAndIntegrationStatus()
         {
-            string sdkName = FaithAnalyticsConstant.NameOfSDK + "_Adjust";
+            string sdkName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "_Adjust";
             SetNameOfConfiguretion(sdkName);
 #if UNITY_EDITOR
             _isSDKIntegrated = FaithAnalyticsScriptDefineSymbol.CheckAdjustIntegration(sdkName);

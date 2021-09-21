@@ -7,7 +7,7 @@ namespace com.faith.sdk.analytics
     using UnityEditor;
 #endif
 
-    [CreateAssetMenu(fileName = "FaithFacebookConfiguretionInfo", menuName = FaithAnalyticsConstant.NameOfSDK + "/FaithFacebookConfiguretionInfo")]
+    [CreateAssetMenu(fileName = "FaithFacebookConfiguretionInfo", menuName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "/FaithFacebookConfiguretionInfo")]
     public class FaithAnalyticsFacebookConfiguretionInfo : FaithBaseClassForAnalyticsConfiguretionInfo
     {
         #region Private Variables
@@ -25,7 +25,7 @@ namespace com.faith.sdk.analytics
 
         public override void SetNameAndIntegrationStatus()
         {
-            string sdkName = FaithAnalyticsConstant.NameOfSDK + "_Facebook";
+            string sdkName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "_Facebook";
             SetNameOfConfiguretion(sdkName);
 #if UNITY_EDITOR
             _isSDKIntegrated = FaithAnalyticsScriptDefineSymbol.CheckFacebookIntegration(sdkName);
