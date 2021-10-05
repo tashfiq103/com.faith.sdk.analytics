@@ -35,7 +35,7 @@ namespace com.faith.sdk.analytics
 
         public bool IsAutoInitialize { get { return _autoInitialize; } }
 
-        public bool ShowAPSdkLogInConsole { get { return _showAnalyticsLogInConsole; } }
+        public bool ShowAnalyticsLogInConsole { get { return _showAnalyticsLogInConsole; } }
 
         public Color InfoLogColor { get { return _infoLogColor; } }
         public Color WarningLogColor { get { return _warningLogColor; } }
