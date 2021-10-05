@@ -1,5 +1,7 @@
 namespace com.faith.sdk.analytics
 {
+#if UNITY_EDITOR
+
     using UnityEngine;
     using UnityEditor;
     using System;
@@ -238,5 +240,7 @@ namespace com.faith.sdk.analytics
 
         #endregion
     }
+
+#endif
 }
 

@@ -27,8 +27,8 @@ namespace com.faith.sdk.analytics
 
         #region Private Variables   :   FaithAnalyticsConfiguretionInfo
 
-        private FaithAnalyticsGeneralConfiguretionInfo  _apSDKConfiguretionInfo;
-        private SerializedObject                        _serializedSDKConfiguretionInfo;
+        private FaithAnalyticsGeneralConfiguretionInfo  _faithAnalyticsGeneralConfiguretionInfo;
+        private SerializedObject                        _serializedFaithAnalyticsGeneralConfiguretionInfo;
 
         private GUIContent _generalSettingContent;
         private GUIContent _analyticsSettingContent;
@@ -57,15 +57,12 @@ namespace com.faith.sdk.analytics
             {
                 _reference = GetWindow<FaithAnalyticsIntegrationManagerEditorWindow>("FaithAnalytics Integration Manager", typeof(FaithAnalyticsIntegrationManagerEditorWindow));
                 _reference.minSize = new Vector2(340, 240);
-                Debug.Log(string.Format("Reference Created"));
             }
             else
             {
                 _reference.Show();
-                Debug.Log(string.Format("Reference Show"));
             }
             _reference.Focus();
-            Debug.Log(string.Format("Reference Focus"));
         }
 
         private void OnEnable()
@@ -281,6 +278,7 @@ namespace com.faith.sdk.analytics
             }
         }
 
+
         private void AnalyticsSettingsGUI()
         {
 
@@ -359,15 +357,15 @@ namespace com.faith.sdk.analytics
 
         private void FetchAllTheReference() {
 
-            _apSDKConfiguretionInfo             = Resources.Load<FaithAnalyticsGeneralConfiguretionInfo>("FaithAnalyticsGeneralConfiguretionInfo");
-            _serializedSDKConfiguretionInfo     = new SerializedObject(_apSDKConfiguretionInfo);
+            _faithAnalyticsGeneralConfiguretionInfo             = Resources.Load<FaithAnalyticsGeneralConfiguretionInfo>("FaithAnalyticsGeneralConfiguretionInfo");
+            _serializedFaithAnalyticsGeneralConfiguretionInfo     = new SerializedObject(_faithAnalyticsGeneralConfiguretionInfo);
 
-            _autoInitialize                     = _serializedSDKConfiguretionInfo.FindProperty("_autoInitialize");
+            _autoInitialize                     = _serializedFaithAnalyticsGeneralConfiguretionInfo.FindProperty("_autoInitialize");
 
 
-            _showGeneralSettings                = _serializedSDKConfiguretionInfo.FindProperty("_showGeneralSetting");
-            _showAnalytics                      = _serializedSDKConfiguretionInfo.FindProperty("_showAnalytics");
-            _showDebuggingSettings              = _serializedSDKConfiguretionInfo.FindProperty("_showDebuggingSetting");
+            _showGeneralSettings                = _serializedFaithAnalyticsGeneralConfiguretionInfo.FindProperty("_showGeneralSetting");
+            _showAnalytics                      = _serializedFaithAnalyticsGeneralConfiguretionInfo.FindProperty("_showAnalytics");
+            _showDebuggingSettings              = _serializedFaithAnalyticsGeneralConfiguretionInfo.FindProperty("_showDebuggingSetting");
 
 
             _generalSettingContent = new GUIContent(
@@ -392,11 +390,11 @@ namespace com.faith.sdk.analytics
             _hyperlinkStyle.wordWrap = true;
             _hyperlinkStyle.richText = true;
 
-            _showAnalyticsLogInConsole = _serializedSDKConfiguretionInfo.FindProperty("_showAnalyticsLogInConsole");
+            _showAnalyticsLogInConsole = _serializedFaithAnalyticsGeneralConfiguretionInfo.FindProperty("_showAnalyticsLogInConsole");
 
-            _infoLogColor = _serializedSDKConfiguretionInfo.FindProperty("_infoLogColor");
-            _warningLogColor = _serializedSDKConfiguretionInfo.FindProperty("_warningLogColor");
-            _errorLogColor = _serializedSDKConfiguretionInfo.FindProperty("_errorLogColor");
+            _infoLogColor = _serializedFaithAnalyticsGeneralConfiguretionInfo.FindProperty("_infoLogColor");
+            _warningLogColor = _serializedFaithAnalyticsGeneralConfiguretionInfo.FindProperty("_warningLogColor");
+            _errorLogColor = _serializedFaithAnalyticsGeneralConfiguretionInfo.FindProperty("_errorLogColor");
 
             _listOfAnalyticsConfiguretion = new List<FaithBaseClassForAnalyticsConfiguretionInfo>();
             Object[] analyticsConfiguretionObjects = Resources.LoadAll("", typeof(FaithBaseClassForAnalyticsConfiguretionInfo));
