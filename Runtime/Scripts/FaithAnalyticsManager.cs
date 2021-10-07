@@ -23,11 +23,14 @@ namespace com.faith.sdk.analytics
 
             if (faithAnalyticsGeneralConfiguretionInfo.IsAutoInitialize) {
 
+                FaithAnalyticsLogger.LogWarning(string.Format("IsATTEnabled = {0}, as by-default, the value is set to 'false'. If you want to pass the 'ATTStatus' manually, try to manually initialize the 'SDKs'", IsATTEnabled));
                 Initialize();
             }
         }
 
-        public static void Initialize() {
+        public static void Initialize(bool IsATTEnabled = false) {
+
+            FaithAnalyticsManager.IsATTEnabled = IsATTEnabled;
 
             FaithAnalyticsGeneralConfiguretionInfo faithAnalyticsGeneralConfiguretionInfo = Resources.Load<FaithAnalyticsGeneralConfiguretionInfo>("FaithAnalyticsGeneralConfiguretionInfo");
 
@@ -39,6 +42,8 @@ namespace com.faith.sdk.analytics
                 if (faithAnalyticsConfiguretion != null)
                     faithAnalyticsConfiguretion.Initialize(faithAnalyticsGeneralConfiguretionInfo, IsATTEnabled);
             }
+
+            IsInitialized = true;
         }
     }
 }
