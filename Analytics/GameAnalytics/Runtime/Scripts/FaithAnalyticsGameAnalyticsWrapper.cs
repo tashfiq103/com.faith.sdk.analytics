@@ -152,9 +152,15 @@ namespace com.faith.sdk.analytics
                 GameAnalytics.NewProgressionEvent(progressionStatus, progression01, progression02, progression03, score);
         }
 
-#endregion
+        #endregion
 
-#region Ad Event
+        #region Ad Event
+
+        public void AdEvent(GAAdAction adAction, GAAdType adType, string adPlacement)
+        {
+            if (CanLogEvent() && _faithAnalyticsGameAnalyticsConfiguretionInfo.IsTrackingAdEvent)
+                GameAnalytics.NewAdEvent(adAction, adType, "Undefined", adPlacement);
+        }
 
         public void AdEvent(GAAdAction adAction, GAAdType adType, string sdkName, string adPlacement)
         {
