@@ -2,7 +2,7 @@ namespace com.faith.sdk.analytics
 {
     using UnityEngine;
 
-    [CreateAssetMenu(fileName = "FaithAnalyticsGeneralConfiguretionInfo", menuName = NAME_OF_SDK + "/FaithAnalyticsGeneralConfiguretionInfo")]
+    //[CreateAssetMenu(fileName = "FaithAnalyticsGeneralConfiguretionInfo", menuName = NAME_OF_SDK + "/FaithAnalyticsGeneralConfiguretionInfo")]
     public class FaithAnalyticsGeneralConfiguretionInfo : ScriptableObject
     {
         #region Public Variables
