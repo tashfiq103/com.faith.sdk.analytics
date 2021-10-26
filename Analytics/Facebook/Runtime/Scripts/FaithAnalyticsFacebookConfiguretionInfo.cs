@@ -7,7 +7,7 @@ namespace com.faith.sdk.analytics
     using UnityEditor;
 #endif
 
-    [CreateAssetMenu(fileName = "FaithFacebookConfiguretionInfo", menuName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "/FaithFacebookConfiguretionInfo")]
+    //[CreateAssetMenu(fileName = "FaithFacebookConfiguretionInfo", menuName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "/FaithFacebookConfiguretionInfo")]
     public class FaithAnalyticsFacebookConfiguretionInfo : FaithBaseClassForAnalyticsConfiguretionInfo
     {
         #region Private Variables

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e6c59a0379145d4b50885e6145cdaf, type: 3}
   m_Name: FaithAnalyticsGameAnalyticsConfiguretionInfo
   m_EditorClassIdentifier: 
-  _showSettings: 0
+  _showSettings: 1
   _nameOfConfiguretion: GameAnalytics
   _isSDKIntegrated: 1
-  _enableAnalyticsEvent: 0
-  _trackProgressionEvent: 0
-  _trackAdEvent: 0
+  _enableAnalyticsEvent: 1
+  _trackProgressionEvent: 1
+  _trackAdEvent: 1
   _subscribeToLionEvent: 0
   _subscribeToLionEventUA: 0
   _defaultWorldIndex: 1

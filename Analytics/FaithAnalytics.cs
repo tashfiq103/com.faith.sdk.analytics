@@ -1,7 +1,7 @@
 namespace com.faith.sdk.analytics
 {
     using System.Collections.Generic;
-
+    using UnityEngine;
     public static class FaithAnalytics
     {
 
@@ -104,6 +104,15 @@ namespace com.faith.sdk.analytics
 
         public static void LevelStarted(object level, object score = null)
         {
+            LevelStarted(
+                Resources.Load<FaithAnalyticsGameAnalyticsConfiguretionInfo>("FaithAnalyticsGameAnalyticsConfiguretionInfo").DefaultWorldIndex,
+                level,
+                score);
+
+        }
+
+        public static void LevelStarted(object world, object level, object score = null)
+        {
             Dictionary<string, object> eventParam = new Dictionary<string, object>();
             eventParam.Add(Key.level, level);
             if (score != null)
@@ -124,10 +133,45 @@ namespace com.faith.sdk.analytics
 
 
 #if FaithAnalytics_GameAnalytics
-            FaithAnalyticsGameAnalyticsWrapper.Instance.ProgressionEvents(
+
+            int castedWorld = 0;
+            if (world != null)
+            {
+                if (int.TryParse(world.ToString(), out castedWorld))
+                {
+
+                }
+                else
+                {
+                    castedWorld = Resources.Load<FaithAnalyticsGameAnalyticsConfiguretionInfo>("FaithAnalyticsGameAnalyticsConfiguretionInfo").DefaultWorldIndex;
+                }
+            }
+
+            int castedLevel = 0;
+
+            if (level != null)
+            {
+                if (int.TryParse(level.ToString(), out castedLevel))
+                {
+
+                }
+            }
+
+            int castedScore = 0;
+            if (score != null) {
+                if (int.TryParse(score.ToString(), out castedScore))
+                {
+
+                }
+            }
+
+
+            FaithAnalyticsGameAnalyticsWrapper.Instance.ProgressionEvent(
                     GameAnalyticsSDK.GAProgressionStatus.Start,
-                    (int)level,
-                    world: -1);
+                    castedWorld.ToString(),
+                    castedLevel.ToString(),
+                    castedScore
+                );
 #endif
 
 
@@ -149,6 +193,14 @@ namespace com.faith.sdk.analytics
 
         public static void LevelComplete(object level, object score = null)
         {
+            LevelComplete(
+                Resources.Load<FaithAnalyticsGameAnalyticsConfiguretionInfo>("FaithAnalyticsGameAnalyticsConfiguretionInfo").DefaultWorldIndex,
+                level,
+                score);
+        }
+
+        public static void LevelComplete(object world, object level, object score = null)
+        {
             Dictionary<string, object> eventParam = new Dictionary<string, object>();
             eventParam.Add(Key.level, level);
             if (score != null)
@@ -169,10 +221,47 @@ namespace com.faith.sdk.analytics
 
 
 #if FaithAnalytics_GameAnalytics
-            FaithAnalyticsGameAnalyticsWrapper.Instance.ProgressionEvents(
+
+            int castedWorld = 0;
+            if (world != null)
+            {
+                if (int.TryParse(world.ToString(), out castedWorld))
+                {
+
+                }
+                else
+                {
+                    castedWorld = Resources.Load<FaithAnalyticsGameAnalyticsConfiguretionInfo>("FaithAnalyticsGameAnalyticsConfiguretionInfo").DefaultWorldIndex;
+                }
+            }
+
+            int castedLevel = 0;
+
+            if (level != null)
+            {
+                if (int.TryParse(level.ToString(), out castedLevel))
+                {
+
+                }
+            }
+
+            int castedScore = 0;
+            if (score != null)
+            {
+                if (int.TryParse(score.ToString(), out castedScore))
+                {
+
+                }
+            }
+
+
+            FaithAnalyticsGameAnalyticsWrapper.Instance.ProgressionEvent(
                     GameAnalyticsSDK.GAProgressionStatus.Complete,
-                    (int)level,
-                    world: -1);
+                    castedWorld.ToString(),
+                    castedLevel.ToString(),
+                    castedScore
+                );
+
 #endif
 
 
@@ -194,6 +283,14 @@ namespace com.faith.sdk.analytics
 
         public static void LevelFailed(object level, object score = null)
         {
+            LevelFailed(
+                Resources.Load<FaithAnalyticsGameAnalyticsConfiguretionInfo>("FaithAnalyticsGameAnalyticsConfiguretionInfo").DefaultWorldIndex,
+                level,
+                score);
+        }
+
+        public static void LevelFailed(object world, object level, object score = null)
+        {
             Dictionary<string, object> eventParam = new Dictionary<string, object>();
             eventParam.Add(Key.level, level);
             if (score != null)
@@ -212,10 +309,47 @@ namespace com.faith.sdk.analytics
 
 
 #if FaithAnalytics_GameAnalytics
-            FaithAnalyticsGameAnalyticsWrapper.Instance.ProgressionEvents(
+
+            int castedWorld = 0;
+            if (world != null)
+            {
+                if (int.TryParse(world.ToString(), out castedWorld))
+                {
+
+                }
+                else
+                {
+                    castedWorld = Resources.Load<FaithAnalyticsGameAnalyticsConfiguretionInfo>("FaithAnalyticsGameAnalyticsConfiguretionInfo").DefaultWorldIndex;
+                }
+            }
+
+            int castedLevel = 0;
+
+            if (level != null)
+            {
+                if (int.TryParse(level.ToString(), out castedLevel))
+                {
+
+                }
+            }
+
+            int castedScore = 0;
+            if (score != null)
+            {
+                if (int.TryParse(score.ToString(), out castedScore))
+                {
+
+                }
+            }
+
+
+            FaithAnalyticsGameAnalyticsWrapper.Instance.ProgressionEvent(
                     GameAnalyticsSDK.GAProgressionStatus.Fail,
-                    (int)level,
-                    world: -1);
+                    castedWorld.ToString(),
+                    castedLevel.ToString(),
+                    castedScore
+                );
+
 #endif
 
 

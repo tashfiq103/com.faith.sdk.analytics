@@ -6,7 +6,7 @@ namespace com.faith.sdk.analytics
     using UnityEditor;
 #endif
 
-    [CreateAssetMenu(fileName = "FaithAnalyticsGameAnalyticsConfiguretionInfo", menuName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "/FaithAnalyticsGameAnalyticsConfiguretionInfo")]
+    //[CreateAssetMenu(fileName = "FaithAnalyticsGameAnalyticsConfiguretionInfo", menuName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "/FaithAnalyticsGameAnalyticsConfiguretionInfo")]
     public class FaithAnalyticsGameAnalyticsConfiguretionInfo : FaithBaseClassForAnalyticsConfiguretionInfo
     {
 

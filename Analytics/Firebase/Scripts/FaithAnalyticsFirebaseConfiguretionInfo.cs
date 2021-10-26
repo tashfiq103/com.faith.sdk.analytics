@@ -3,7 +3,7 @@ namespace com.faith.sdk.analytics
     using UnityEngine;
     using System.Collections.Generic;
 
-    [CreateAssetMenu(fileName = "FaithAnalyticsFirebaseConfiguretionInfo", menuName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "/FaithAnalyticsFirebaseConfiguretionInfo")]
+    //[CreateAssetMenu(fileName = "FaithAnalyticsFirebaseConfiguretionInfo", menuName = FaithAnalyticsGeneralConfiguretionInfo.NAME_OF_SDK + "/FaithAnalyticsFirebaseConfiguretionInfo")]
     public class FaithAnalyticsFirebaseConfiguretionInfo : FaithBaseClassForAnalyticsConfiguretionInfo
     {
         public override void Initialize(FaithAnalyticsGeneralConfiguretionInfo faithAnalyticsGeneralConfiguretionInfo, bool isATTEnable = false)
