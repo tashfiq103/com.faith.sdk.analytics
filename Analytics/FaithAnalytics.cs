@@ -76,21 +76,21 @@ namespace com.faith.sdk.analytics
         private static void LogEvent(string paramName, string paramValue, string eventName, Dictionary<string, object> eventParams)
         {
 #if FaithAnalytics_Facebook
-                            FaithFacebookWrapper.Instance.AdEvent(
+                            FaithAnalyticsFacebookWrapper.Instance.AdEvent(
                                     eventName,
                                     eventParams
                                 );
 #endif
 
 #if FaithAnalytics_Adjust
-                            FaithAdjustWrapper.Instance.AdEvent(
+                            FaithAnalyticsAdjustWrapper.Instance.AdEvent(
                                     eventName,
                                     eventParams
                                 );
 #endif
 
 #if FaithAnalytics_Firebase
-                            FaithFirebaseWrapper.Instance.AdEvent(
+                            FaithAnalyticsFirebaseWrapper.Instance.AdEvent(
                                     eventName,
                                     paramName,
                                     paramValue
