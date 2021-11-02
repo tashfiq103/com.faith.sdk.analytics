@@ -50,7 +50,7 @@ namespace com.faith.sdk.analytics
 
         #region Editor
 
-        [MenuItem("Faith/FaithAnalytics Integration Manager")]
+        [MenuItem("FAITH/FaithAnalytics Integration Manager")]
         public static void Create()
         {
             if (_reference == null)
