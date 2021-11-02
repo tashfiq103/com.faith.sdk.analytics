@@ -101,8 +101,6 @@ public static class AnalyticsCall
 }
 ```
 
-![](https://github.com/tashfiq103/com.faith.sdk.analytics/blob/main/_GitHubResources/ss4_analytics_enable_disable.png)
-
 
 
 
