@@ -6,7 +6,7 @@
 
 ## Downloading "FaithAnalytics" package.
 
-Please go to the release section on this repository and download the latest version of "FaithAnalytics". Once you download the ".unityPackage", import it to your unity project. Once the project recompilation is complete, you will be able to see the following windows as the given screenshot below (Faith -> FaithAnalytics Integration Manager)
+Please go to the release section on this repository and download the latest version of "FaithAnalytics". Once you download the ".unityPackage", import it to your unity project. Once the project recompilation is complete, you will be able to see the following windows as the given screenshot below (FAITH -> FaithAnalytics Integration Manager)
 
 ![](https://github.com/tashfiq103/com.faith.sdk.analytics/blob/main/_GitHubResources/ss0_menu.png)
 
@@ -27,7 +27,8 @@ FaithAnalytics Integration manager comes with the following section
 ## General
 - Download : Will redirect you the following repository
 - Documentation : Will redirect you to the README.md file.
-- Auto Initialize : For automatic initialization at start for all the analytics, you need to set the value = 'true'. If you want to manually initialize the sdk, make sure to call 'FaithAnalyticsManager.Initialize()' when the value = 'false'
+- Auto Initialize : For automatic initialization at start for all the analytics, you need to set the value = 'true'. If you want to manually initialize the sdk, make sure to call 'FaithAnalyticsManager.Initialize()' when the value = 'false'.
+
 ![](https://github.com/tashfiq103/com.faith.sdk.analytics/blob/main/_GitHubResources/ss1_general_auto.png)
 ![](https://github.com/tashfiq103/com.faith.sdk.analytics/blob/main/_GitHubResources/ss2_general_manual.png)
 
