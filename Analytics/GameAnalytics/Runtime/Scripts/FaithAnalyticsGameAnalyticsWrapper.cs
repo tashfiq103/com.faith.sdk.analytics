@@ -11,13 +11,13 @@ namespace com.faith.sdk.analytics
         #region Public Variables
 
         public static FaithAnalyticsGameAnalyticsWrapper Instance;
-
+        public bool IsATEEnabled { get; private set; }
         #endregion
 
         #region Private Variables
 
         public FaithAnalyticsGeneralConfiguretionInfo FaithAnalyticsGeneralConfiguretionInfoReference { get; private set; }
-        public FaithAnalyticsGameAnalyticsConfiguretionInfo FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce { get; private set; }
+        public FaithAnalyticsGameAnalyticsConfiguretionInfo FaithAnalyticsGameAnalyticsConfiguretionInfoReference { get; private set; }
 
         #endregion
 
@@ -25,7 +25,7 @@ namespace com.faith.sdk.analytics
 
         private bool CanLogEvent()
         {
-            if (FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsAnalyticsEventEnabled)
+            if (FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsAnalyticsEventEnabled)
             {
                 return true;
             }
@@ -39,7 +39,9 @@ namespace com.faith.sdk.analytics
         private IEnumerator InitializationWithDelay()
         {
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2.5f);
+
+            
 
 #if UNITY_IOS
 
@@ -48,7 +50,15 @@ namespace com.faith.sdk.analytics
             FaithAnalyticsLogger.Log("GA Initialized (Editor Only : Will fire 'GameAnalytics.RequestTrackingAuthorization(this)' on native iOS");
             GameAnalytics.Initialize();
 #else
-            GameAnalytics.RequestTrackingAuthorization(this);
+            if (IsATEEnabled)
+            {
+                GameAnalytics.RequestTrackingAuthorization(this);
+            }
+            else
+            {
+                FaithAnalyticsLogger.Log("GA Initialized");
+                GameAnalytics.Initialize();
+            }
 #endif
             //----------
 
@@ -91,11 +101,11 @@ namespace com.faith.sdk.analytics
 
 #region Public Callback
 
-        public void Initialize(FaithAnalyticsGeneralConfiguretionInfo apSdkConfiguretionInfo, FaithAnalyticsGameAnalyticsConfiguretionInfo apGameAnalyticsConfiguretion) {
+        public void Initialize(FaithAnalyticsGeneralConfiguretionInfo apSdkConfiguretionInfo, FaithAnalyticsGameAnalyticsConfiguretionInfo apGameAnalyticsConfiguretion, bool isATEEnabled) {
 
             FaithAnalyticsGeneralConfiguretionInfoReference = apSdkConfiguretionInfo;
-            FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce = apGameAnalyticsConfiguretion;
-
+            FaithAnalyticsGameAnalyticsConfiguretionInfoReference = apGameAnalyticsConfiguretion;
+            IsATEEnabled = isATEEnabled;
             StartCoroutine(InitializationWithDelay());
         }
 
@@ -111,14 +121,14 @@ namespace com.faith.sdk.analytics
         public void ProgressionEvents(GAProgressionStatus progressionStatus, int level, int world = -1, int score = -1)
         {
             if (score < 0)
-                ProgressionEvent(progressionStatus, string.Format("world{0}", world == -1 ? FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.DefaultWorldIndex : world), string.Format("level{0}", level));
+                ProgressionEvent(progressionStatus, string.Format("world{0}", world == -1 ? FaithAnalyticsGameAnalyticsConfiguretionInfoReference.DefaultWorldIndex : world), string.Format("level{0}", level));
             else
-                ProgressionEvent(progressionStatus, string.Format("world{0}", world == -1 ? FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.DefaultWorldIndex : world), string.Format("level{0}", level), score);
+                ProgressionEvent(progressionStatus, string.Format("world{0}", world == -1 ? FaithAnalyticsGameAnalyticsConfiguretionInfoReference.DefaultWorldIndex : world), string.Format("level{0}", level), score);
         }
 
         public void ProgressionEvent(GAProgressionStatus progressionStatus, string progression01)
         {
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingProgressionEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingProgressionEvent)
             {
                 GameAnalytics.NewProgressionEvent(progressionStatus, progression01);
                 FaithAnalyticsLogger.Log(string.Format("ProgressionStatus : {0}, progression01 : {1}", progressionStatus, progression01));
@@ -127,7 +137,7 @@ namespace com.faith.sdk.analytics
 
         public void ProgressionEvent(GAProgressionStatus progressionStatus, string progression01, int score)
         {
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingProgressionEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingProgressionEvent)
             {
                 GameAnalytics.NewProgressionEvent(progressionStatus, progression01, score);
                 FaithAnalyticsLogger.Log(string.Format("ProgressionStatus : {0}, progression01 : {1}, score = {2}", progressionStatus, progression01, score));
@@ -136,7 +146,7 @@ namespace com.faith.sdk.analytics
 
         public void ProgressionEvent(GAProgressionStatus progressionStatus, string progression01, string progression02)
         {
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingProgressionEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingProgressionEvent)
             {
                 GameAnalytics.NewProgressionEvent(progressionStatus, progression01, progression02);
                 FaithAnalyticsLogger.Log(string.Format("ProgressionStatus : {0}, progression01 : {1}, progression02 = {2}", progressionStatus, progression01, progression02));
@@ -145,7 +155,7 @@ namespace com.faith.sdk.analytics
 
         public void ProgressionEvent(GAProgressionStatus progressionStatus, string progression01, string progression02, int score)
         {
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingProgressionEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingProgressionEvent)
             {
                 GameAnalytics.NewProgressionEvent(progressionStatus, progression01, progression02, score);
                 FaithAnalyticsLogger.Log(string.Format("ProgressionStatus : {0}, progression01 : {1}, progression02 = {2}, score = {3}", progressionStatus, progression01, progression02, score));
@@ -154,7 +164,7 @@ namespace com.faith.sdk.analytics
 
         public void ProgressionEvent(GAProgressionStatus progressionStatus, string progression01, string progression02, string progression03)
         {
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingProgressionEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingProgressionEvent)
             {
                 GameAnalytics.NewProgressionEvent(progressionStatus, progression01, progression02, progression03);
                 FaithAnalyticsLogger.Log(string.Format("ProgressionStatus : {0}, progression01 : {1}, progression02 = {2}, progression03 = {3}", progressionStatus, progression01, progression02, progression03));
@@ -163,7 +173,7 @@ namespace com.faith.sdk.analytics
 
         public void ProgressionEvent(GAProgressionStatus progressionStatus, string progression01, string progression02, string progression03, int score)
         {
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingProgressionEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingProgressionEvent)
             {
                 GameAnalytics.NewProgressionEvent(progressionStatus, progression01, progression02, progression03, score);
                 FaithAnalyticsLogger.Log(string.Format("ProgressionStatus : {0}, progression01 : {1}, progression02 = {2}, progression03 = {3}, score = {4}", progressionStatus, progression01, progression02, progression03, score));
@@ -176,26 +186,26 @@ namespace com.faith.sdk.analytics
 
         public void AdEvent(GAAdAction adAction, GAAdType adType, string adPlacement)
         {
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingAdEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingAdEvent)
                 GameAnalytics.NewAdEvent(adAction, adType, "Undefined", adPlacement);
         }
 
         public void AdEvent(GAAdAction adAction, GAAdType adType, string sdkName, string adPlacement)
         {
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingAdEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingAdEvent)
                 GameAnalytics.NewAdEvent(adAction, adType, sdkName, adPlacement);
         }
 
         public void AdEvent(GAAdAction adAction, GAAdType adType, string sdkName, string adPlacement, long duration)
         {
 
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingAdEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingAdEvent)
                 GameAnalytics.NewAdEvent(adAction, adType, sdkName, adPlacement, duration);
         }
 
         public void AdEvent(GAAdAction adAction, GAAdType adType, string sdkName, string adPlacement, GAAdError noAdError)
         {
-            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReferemce.IsTrackingAdEvent)
+            if (CanLogEvent() && FaithAnalyticsGameAnalyticsConfiguretionInfoReference.IsTrackingAdEvent)
                 GameAnalytics.NewAdEvent(adAction, adType, sdkName, adPlacement, noAdError);
         }
 

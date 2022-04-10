@@ -237,6 +237,17 @@ namespace com.faith.sdk.analytics
             return isAdded;
         }
 
+        public static bool CheckTenjinIntegration(string sdkName)
+        {
+
+            bool isAdded = AssetDatabase.IsValidFolder("Assets/Tenjin");
+            UpdateDefines(
+                    sdkName,
+                    isAdded,
+                    new BuildTargetGroup[] { BuildTargetGroup.Android, BuildTargetGroup.iOS }
+                );
+            return isAdded;
+        }
 
         #endregion
     }

@@ -52,7 +52,7 @@ namespace com.faith.sdk.analytics
 
                 DontDestroyOnLoad(newfaithAnalyticsGameAnalyticsWrapper);
 
-                FaithAnalyticsGameAnalyticsWrapper.Instance.Initialize(faithAnalyticsGeneralConfiguretionInfo, this);
+                FaithAnalyticsGameAnalyticsWrapper.Instance.Initialize(faithAnalyticsGeneralConfiguretionInfo, this, isATTEnable);
             }
 #endif
         }
