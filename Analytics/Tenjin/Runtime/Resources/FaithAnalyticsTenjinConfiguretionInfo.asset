@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: FaithAnalyticsTenjinConfiguretionInfo
   m_EditorClassIdentifier: 
   _showSettings: 0
-  _nameOfConfiguretion: 
-  _isSDKIntegrated: 0
-  _enableAnalyticsEvent: 0
+  _nameOfConfiguretion: Tenjin
+  _isSDKIntegrated: 1
+  _enableAnalyticsEvent: 1
   _trackProgressionEvent: 0
   _trackAdEvent: 0
   _subscribeToLionEvent: 0
   _subscribeToLionEventUA: 0
+  _apiKey: SQJVTVHYJX6PBNA971XLSDMQERWHSUZC

@@ -51,7 +51,7 @@ namespace com.faith.sdk.analytics
             instance.SetAppStoreType(AppStoreType.googleplay);
 #endif
 
-#if UNITY_IOS
+#if UNITY_IOS && !UNITY_EDITOR
             if (new Version(Device.systemVersion).CompareTo(new Version("14.0")) >= 0)
             {
                 // Tenjin wrapper for requestTrackingAuthorization
@@ -67,7 +67,7 @@ namespace com.faith.sdk.analytics
             {
                 instance.Connect();
             }
-#elif UNITY_ANDROID
+#else
 
       // Sends install/open event to Tenjin
       instance.Connect();

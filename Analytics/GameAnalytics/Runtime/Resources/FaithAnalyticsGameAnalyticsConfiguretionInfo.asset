@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showSettings: 0
   _nameOfConfiguretion: GameAnalytics
-  _isSDKIntegrated: 0
+  _isSDKIntegrated: 1
   _enableAnalyticsEvent: 1
   _trackProgressionEvent: 1
   _trackAdEvent: 1
