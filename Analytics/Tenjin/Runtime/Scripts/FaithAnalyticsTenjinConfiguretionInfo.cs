@@ -46,9 +46,12 @@ namespace com.faith.sdk.analytics
 
         public override void PreCustomEditorGUI()
         {
+#if UNITY_EDITOR
+
             _apiKey = EditorGUILayout.TextField("APIKey", _apiKey);
 
             FaithAnalyticsEditorModule.DrawHorizontalLine();
+#endif
         }
 
         public override void SetNameAndIntegrationStatus()

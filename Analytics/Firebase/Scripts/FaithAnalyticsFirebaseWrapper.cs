@@ -14,12 +14,16 @@ namespace com.faith.sdk.analytics
 
         public static FaithAnalyticsFirebaseWrapper Instance;
 
+        public bool IsFirebaseInitialized { get; private set; } = false;
+
         #endregion
 
         #region Private Variables
 
         private FaithAnalyticsGeneralConfiguretionInfo _apSdkConfiguretionInfo;
         private FaithAnalyticsFirebaseConfiguretionInfo _apFirebaseConfiguretion;
+
+        private Queue<UnityAction> _waitingForFirebaseToInitialized = new Queue<UnityAction>();
 
         #endregion
 
@@ -55,6 +59,10 @@ namespace com.faith.sdk.analytics
                     // subscribe to firebase events
                     // subscribe here so avoid error if dependency check fails
 
+                    IsFirebaseInitialized = true;
+                    while (_waitingForFirebaseToInitialized.Count > 0)
+                        _waitingForFirebaseToInitialized.Dequeue()?.Invoke();
+
                     FaithAnalyticsLogger.Log("Firebase Initialized");
                     OnInitialized?.Invoke();
                 }
@@ -63,6 +71,14 @@ namespace com.faith.sdk.analytics
                     FaithAnalyticsLogger.LogError($"Firebase: Could not resolve all Firebase dependencies: {dependencyStatus}");
                 }
             });
+        }
+
+        public void OnFirebaseInitializedEvent(UnityAction OnFirebaseInitialized)
+        {
+            if (IsFirebaseInitialized)
+                OnFirebaseInitialized?.Invoke();
+            else
+                _waitingForFirebaseToInitialized.Enqueue(OnFirebaseInitialized);
         }
 
 
